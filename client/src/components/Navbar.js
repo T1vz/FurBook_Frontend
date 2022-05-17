@@ -25,20 +25,21 @@ export const Navbar = () => {
   let color = 'green'
 
   switch (path) {
-    case 'short1vz':
+    case 'shop':
       links = [
-        { to: "/short1vz/create", caption: "Создать" },
-        { to: "/short1vz/links", caption: "Ссылки" },
-        { to: "/main", caption: "Главное меню" }
+        { to: "/shop/create", caption: "Создать товар" },
+        { to: "/shop/items", caption: "Мои товары" },
+        { to: "/shop/buy", caption: "Все товары" },
+        { to: "/profile/me", caption: "Главное меню" }
       ]
-      title = 'Link Shorter'
+      title = 'Online Shop'
       color = 'blue'
       break
-    case 'main':
+    case 'profile':
       links = [
-        { to: "/short1vz/links", caption: "Онлайн магазин" },
+        { to: "/shop/buy", caption: "Онлайн магазин" },
         { to: "/chat", caption: "Мессенджер" },
-        { to: "/game", caption: "Найти компнаию для прогулки" },
+        { to: "/locator", caption: "Найти компнаию для прогулки" },
       ]
       title = 'FurBook'
       color = 'green'
@@ -50,11 +51,11 @@ export const Navbar = () => {
       title = 'FurBook Messenger'
       color = 'yellow'
       break
-    case 'game':
+    case 'locator':
       links = [
-        { to: "/main", caption: "Главное меню" }
+        { to: "/profile/me", caption: "Главное меню" }
       ]
-      title = 'T1vz Game'
+      title = 'Locator'
       color = 'red'
       break
     default:

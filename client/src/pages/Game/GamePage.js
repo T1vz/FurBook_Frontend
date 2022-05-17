@@ -45,13 +45,13 @@ export const GamePage = (props) => {
     return (
         <div className="row">
             <div className="center">
-                <p>Games</p>
-                {rooms.map((elem, index)=>{
-                    return <a>{(index+1.).toString() + '. ' + elem.users.map((elem2)=> elem2.username ).join()}</a>
-                })}
-                <div>
-                    <button onClick={CreateGameHandler}>Create game</button>
-                </div>
+                <p>Coming soon...</p>
+                {/*{rooms.map((elem, index)=>{*/}
+                {/*    return <a>{(index+1.).toString() + '. ' + elem.users.map((elem2)=> elem2.username ).join()}</a>*/}
+                {/*})}*/}
+                {/*<div>*/}
+                {/*    <button onClick={CreateGameHandler}>Create game</button>*/}
+                {/*</div>*/}
                 
             </div>  
         </div>

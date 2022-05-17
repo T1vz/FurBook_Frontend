@@ -7,31 +7,41 @@ export const CreatePage = () => {
     const history = useHistory()
     const auth = useContext(AuthContext)
     const {request} = useHttp()
+    const [title, setTitle] = useState('')
     const [link, setLink] = useState('')
+    const [price, setPrice] = useState('')
 
     useEffect(()=>{
         window.M.updateTextFields()
     }, [])
                              
     const pressHandler = async (event)=>{
-        if (event.key === 'Enter'){
             try {
-                const data = await request('/api/link/generate', 'POST', {from: link}, {
+                const data = await request('/api/link/generate', 'POST', {title, link, price}, {
                     Authorization: `Bearer ${auth.token}`
                 })
-                history.push(`/short1vz/detail/${data.link._id}`)
+                history.push(`/shop/detail/${data.item._id}`)
             } catch (e) {
                 
             }
-        }                                                       
     }
     return (
         <div className="row">
             <div className="col s8 offser-s2" style={{paddingTop: '2rem'}}>
                 <div className="input-field">
-                    <input onKeyPress={pressHandler} value={link} onChange={e => setLink(e.target.value)} placeholder="Вставьте ссылку" id="link" type="text"/>
-                    <label htmlFor="link">Введите ссылку</label>
+                    <input  value={title} onChange={e => setTitle(e.target.value)} placeholder="Название товара" id="title" type="text"/>
+                    <label htmlFor="title">Введите название товара</label>
                 </div>
+                <div className="input-field">
+                    <input  value={link} onChange={e => setLink(e.target.value)} placeholder="Ссылка на картинку товара" id="link" type="text"/>
+                    <label htmlFor="link">Введите ссылку на картинку</label>
+                </div>
+                <div className="input-field">
+                    <input  value={price} onChange={e => setPrice(e.target.value)} placeholder="Цена товара" id="price" type="text"/>
+                    <label htmlFor="price">Введите сумму для товара</label>
+                </div>
+                <a className="btn-floating btn-large waves-effect waves-light red" onClick={pressHandler}><i
+                    className="material-icons">add</i></a>
             </div>
         </div>
     )

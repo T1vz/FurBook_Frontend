@@ -9,30 +9,34 @@ import { MainPage } from './pages/MainPage'
 import { Provider } from 'react-redux';
 import store from './redux/redux-store'
 import GameContainer from './pages/Game/GameContainer'
+import {BuyPage} from "./pages/LinkShorter/BuyPage";
 
 export const useRoutes = isAuthenticated => {
     if (isAuthenticated){
         return(
             <Switch>
-                <Route path="/main" exact>
+                <Route path="/profile/:id" exact>
                     <MainPage/>
                 </Route>
-                <Route path="/game" exact>
+                <Route path="/locator" exact>
                     <GameContainer/>
                 </Route>
                 <Route path="/chat" exact>
                     <ChatPage/>
                 </Route>
-                <Route path="/short1vz/links" exact>
+                <Route path="/shop/items" exact>
                     <LinksPage/>
                 </Route>
-                <Route path="/short1vz/create" exact>
+                <Route path="/shop/buy" exact>
+                    <BuyPage/>
+                </Route>
+                <Route path="/shop/create" exact>
                     <CreatePage/>
                 </Route>
-                <Route path="/short1vz/detail/:id">
+                <Route path="/shop/detail/:id">
                     <DetailPage/>
                 </Route>
-                <Redirect to="/main"/>
+                <Redirect to="/profile/me"/>
             </Switch>
         )
     }

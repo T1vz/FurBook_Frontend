@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const LinkList = ({ links }) => {
     if (!links.length){
-        return <p className="center">Ссылок пока нет</p>
+        return <p className="center">Товаров пока нет</p>
     }
     return (
         <div>
@@ -11,8 +11,9 @@ export const LinkList = ({ links }) => {
             <thead>
                 <tr>
                     <th>Номер</th>
-                    <th>Изначальная</th>
-                    <th>Сокращенная</th>
+                    <th>Название</th>
+                    <th>Картинка</th>
+                    <th>Цена</th>
                     <th>Открыть</th>
                 </tr>
             </thead>
@@ -22,9 +23,10 @@ export const LinkList = ({ links }) => {
                     return (
                         <tr>
                             <td>{index+1}</td>
-                            <td>{elem.from}</td>
-                            <td>{elem.to}</td>
-                            <td><Link to={`/short1vz/detail/${elem._id}`}>Открыть</Link></td>
+                            <td>{elem.title}</td>
+                            <td><img src={elem.link}/></td>
+                            <td>{elem.price}</td>
+                            <td><Link to={`/shop/detail/${elem._id}`}>Открыть</Link></td>
                         </tr>
                     )
                 })}
